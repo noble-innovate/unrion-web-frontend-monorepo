@@ -12,8 +12,6 @@ interface IHomePage {
 }
 
 export default async function HomePage({ params }: IHomePage) {
-  console.log({ params });
-
   const { homePage, jobFilterTexts, jobFilters, noJobsError } =
     localeContents.en;
 
