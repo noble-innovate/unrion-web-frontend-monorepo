@@ -1,0 +1,14 @@
+{
+  "name": "@packages/utils",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "clsx": "^1.2.1",
+    "tailwind-merge": "^1.13.2",
+    "axios": "^1.4.0"
+  }
+}

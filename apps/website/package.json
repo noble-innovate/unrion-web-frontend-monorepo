@@ -1,0 +1,38 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^13.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@packages/ui": "workspace:*",
+    "@packages/utils": "workspace:*",
+    "@packages/assets": "workspace:*",
+    "react-hook-form": "^7.45.1",
+    "react-icons": "^4.10.1",
+    "iso-country-currency": "^0.7.2",
+    "date-fns": "^2.30.0",
+    "html-react-parser": "^4.0.0",
+    "swr": "^2.2.0",
+    "next-intl": "3.0.0-beta.7"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.12",
+    "@types/react": "^18.0.22",
+    "@types/react-dom": "^18.0.7",
+    "eslint-config-custom": "workspace:*",
+    "tailwind-config": "workspace:*",
+    "tailwindcss": "^3.3.2",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.3"
+  }
+}

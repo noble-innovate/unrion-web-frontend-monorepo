@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-stroke-1-rose-300 {
+    -webkit-text-stroke: 1px #fda4af;
+  }
+
+  .job-description-box strong {
+    @apply font-semibold;
+  }
+}
