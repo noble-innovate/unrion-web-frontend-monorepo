@@ -14,6 +14,8 @@ import {
   TContractTime,
   TContractType,
 } from '@website/components/job-search/job-data';
+import JobApplicationForm from '@website/components/job-search/job-application-form';
+import { IResumeUploadForm } from '@website/components/common/resume-upload-form';
 
 export const contractMap: Record<TContractTime | TContractType, string> = {
   part_time: 'Part time',
@@ -33,12 +35,24 @@ interface IJobDescription {
   job: IJob;
   descriptionRichText?: string;
   jobDescriptionTexts: IJobDescriptionTexts;
+  jobApplicationTitle: string;
+  jobApplicationBtnTxt: string;
+  resumeUploadForm: IResumeUploadForm;
+  applyingForJobTxt: string;
+  jobApplicationSuccessTxt: string;
+  jobApplicationErrorTxt: string;
 }
 
 export default function JobDescription({
   job,
   descriptionRichText,
   jobDescriptionTexts,
+  jobApplicationTitle,
+  jobApplicationBtnTxt,
+  resumeUploadForm,
+  applyingForJobTxt,
+  jobApplicationSuccessTxt,
+  jobApplicationErrorTxt,
 }: IJobDescription) {
   const { moreDetailsBtnTxt, applyBtnTxt, saveBtnTxt } = jobDescriptionTexts;
 
@@ -86,7 +100,17 @@ export default function JobDescription({
           )}
         </div>
 
-        <CTAButtons applyBtnTxt={applyBtnTxt} saveBtnTxt={saveBtnTxt} />
+        <CTAButtons
+          job={job}
+          applyBtnTxt={applyBtnTxt}
+          saveBtnTxt={saveBtnTxt}
+          jobApplicationTitle={jobApplicationTitle}
+          jobApplicationBtnTxt={jobApplicationBtnTxt}
+          resumeUploadForm={resumeUploadForm}
+          applyingForJobTxt={applyingForJobTxt}
+          jobApplicationSuccessTxt={jobApplicationSuccessTxt}
+          jobApplicationErrorTxt={jobApplicationErrorTxt}
+        />
       </div>
 
       <div className='job-description-box pb-72'>
@@ -94,7 +118,17 @@ export default function JobDescription({
           <Fragment>
             {parse(descriptionRichText)}
             <div className='flex justify-end'>
-              <CTAButtons applyBtnTxt={applyBtnTxt} saveBtnTxt={saveBtnTxt} />
+              <CTAButtons
+                job={job}
+                applyBtnTxt={applyBtnTxt}
+                saveBtnTxt={saveBtnTxt}
+                jobApplicationTitle={jobApplicationTitle}
+                jobApplicationBtnTxt={jobApplicationBtnTxt}
+                resumeUploadForm={resumeUploadForm}
+                applyingForJobTxt={applyingForJobTxt}
+                jobApplicationSuccessTxt={jobApplicationSuccessTxt}
+                jobApplicationErrorTxt={jobApplicationErrorTxt}
+              />
             </div>
           </Fragment>
         )}
@@ -127,16 +161,39 @@ export default function JobDescription({
 /////////////////////////////////////////////////////////////////////////////
 
 interface ICTAButtons {
+  job: IJob;
   applyBtnTxt: string;
   saveBtnTxt: string;
+  jobApplicationTitle: string;
+  jobApplicationBtnTxt: string;
+  resumeUploadForm: IResumeUploadForm;
+  applyingForJobTxt: string;
+  jobApplicationSuccessTxt: string;
+  jobApplicationErrorTxt: string;
 }
 
-const CTAButtons = ({ applyBtnTxt, saveBtnTxt }: ICTAButtons) => (
+const CTAButtons = ({
+  job,
+  applyBtnTxt,
+  saveBtnTxt,
+  resumeUploadForm,
+  jobApplicationBtnTxt,
+  jobApplicationTitle,
+  applyingForJobTxt,
+  jobApplicationSuccessTxt,
+  jobApplicationErrorTxt,
+}: ICTAButtons) => (
   <div className='flex items-center gap-5 mt-5 sticky top-0'>
-    <Button className='gap-2'>
-      <span>{applyBtnTxt}</span>
-      <BsBoxArrowInUpRight className='text-lg' />
-    </Button>
+    <JobApplicationForm
+      job={job}
+      applyBtnTxt={applyBtnTxt}
+      jobApplicationTitle={jobApplicationTitle}
+      resumeUploadForm={resumeUploadForm}
+      jobApplicationBtnTxt={jobApplicationBtnTxt}
+      applyingForJobTxt={applyingForJobTxt}
+      jobApplicationSuccessTxt={jobApplicationSuccessTxt}
+      jobApplicationErrorTxt={jobApplicationErrorTxt}
+    />
 
     <Button variant='outline'>{saveBtnTxt}</Button>
   </div>

@@ -15,6 +15,7 @@ import {
 import { cn } from '@packages/utils';
 
 import useJob from '@website/hooks/use-job';
+import { IJob } from '@website/components/job-search/job-data';
 
 export interface IResumeUploadFormValues {
   fullName: string;
@@ -22,7 +23,7 @@ export interface IResumeUploadFormValues {
   resume: IFile;
 }
 
-interface IResumeUploadForm {
+export interface IResumeUploadForm {
   nameInputPlaceholder: string;
   nameInputErrorMsg: string;
   emailInputPlaceholder: string;
@@ -32,6 +33,7 @@ interface IResumeUploadForm {
   uploadingResumeTxt: string;
   resumeUploadSuccessTxt: string;
   resumeUploadErrorTxt: string;
+  job?: IJob;
 }
 
 export default function ResumeUploadForm({
@@ -40,11 +42,11 @@ export default function ResumeUploadForm({
   emailInputPlaceholder,
   emailInputErrorMsg,
   uploadBtnTxt,
-  submitBtnTxt: defaultSubmitBtnTxt,
+  submitBtnTxt,
   uploadingResumeTxt,
   resumeUploadSuccessTxt,
   resumeUploadErrorTxt,
-  submitBtnTxt,
+  job,
 }: IResumeUploadForm) {
   const [uploadedFileName, setUploadedFileName] = useState<string>();
 
@@ -63,14 +65,20 @@ export default function ResumeUploadForm({
     return () => watchUploadedFile.unsubscribe();
   }, [watch]);
 
-  const { handleUploadResume, uploadingResume, resumeUploadResponse } =
-    useJob();
+  const {
+    handleUploadResume,
+    uploadingResume,
+    resumeUploadResponse,
+    handleJobApplication,
+  } = useJob();
 
   return (
     <Fragment>
       <form
-        className='w-[24rem] flex flex-col items-end gap-4'
-        onSubmit={handleSubmit(handleUploadResume)}
+        className='w-full flex flex-col items-end gap-4'
+        onSubmit={handleSubmit(
+          job ? (d) => handleJobApplication(d, job) : handleUploadResume
+        )}
       >
         <div className='w-full'>
           <Input
@@ -144,7 +152,7 @@ export default function ResumeUploadForm({
           <ErrorText>{resumeUploadErrorTxt}</ErrorText>
         )}
 
-        <Button className='px-12'>{submitBtnTxt ?? defaultSubmitBtnTxt}</Button>
+        <Button className='px-12'>{submitBtnTxt}</Button>
       </form>
       {uploadingResume && (
         <div className='fixed inset-0 flex flex-col justify-center items-center gap-5 z-50 bg-white/90'>

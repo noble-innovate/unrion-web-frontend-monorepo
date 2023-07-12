@@ -20,3 +20,21 @@ export const uploadResume = async (data: {
     `${process.env.NEXT_PUBLIC_ONRION_SERVER_URL}/job/upload-resume`,
     data
   );
+
+export const applyForJob = async (data: {
+  fullName: string;
+  email: string;
+  base64ResumeFile: string;
+  job: {
+    id: string;
+    title: string;
+    descriptionSnippet: string;
+    location: string;
+    url: string;
+    company: string;
+  };
+}) =>
+  await axiosRequest.post(
+    `${process.env.NEXT_PUBLIC_ONRION_SERVER_URL}/job/apply`,
+    data
+  );

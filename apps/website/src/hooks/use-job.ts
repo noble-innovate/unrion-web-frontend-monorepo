@@ -3,6 +3,7 @@ import { useState } from 'react';
 import useSWR from 'swr';
 
 import {
+  applyForJob,
   getJobDetails,
   getJobs,
   uploadResume,
@@ -23,13 +24,17 @@ export default function () {
     data: jobs,
     error: getJobsError,
     isLoading: isLoadingJobs,
-  } = useSWR(jobSearchQuery, (q) => getJobs(jobSearchCountryCode ?? 'ca', q));
+  } = useSWR(jobSearchQuery, (q) => getJobs(jobSearchCountryCode ?? 'ca', q), {
+    revalidateOnFocus: false,
+  });
 
   const {
     data: jobDescription,
     error: getJobDescriptionError,
     isLoading: isLoadingJobDescription,
-  } = useSWR(jobDescriptionUrl, (url) => getJobDetails(url));
+  } = useSWR(jobDescriptionUrl, (url) => getJobDetails(url), {
+    revalidateOnFocus: false,
+  });
 
   const fetchJobs = (countryCode: string, query: string) => {
     setJobSearchCountryCode(countryCode);
@@ -61,14 +66,56 @@ export default function () {
   const handleUploadResume = async (
     resumeUploadFormValues: IResumeUploadFormValues
   ) => {
-    setUploadingResume(true);
     const { fullName, email, resume } = resumeUploadFormValues;
 
     try {
+      setUploadingResume(true);
       await uploadResume({
         fullName,
         email,
         base64ResumeFile: resume.base64,
+      });
+
+      setResumeUploadResponse({ error: false, success: true });
+    } catch (error) {
+      setResumeUploadResponse({ error: true, success: false });
+    }
+
+    setTimeout(() => {
+      setResumeUploadResponse({ error: false, success: false });
+    }, 2000);
+
+    setUploadingResume(false);
+  };
+
+  const handleJobApplication = async (
+    resumeUploadFormValues: IResumeUploadFormValues,
+    job: IJob
+  ) => {
+    const { fullName, email, resume } = resumeUploadFormValues;
+    const {
+      id,
+      title,
+      description: descriptionSnippet,
+      location,
+      redirect_url: url,
+      company,
+    } = job;
+
+    try {
+      setUploadingResume(true);
+      await applyForJob({
+        fullName,
+        email,
+        base64ResumeFile: resume.base64,
+        job: {
+          id,
+          title,
+          descriptionSnippet,
+          location: location.display_name,
+          url,
+          company: company.display_name,
+        },
       });
 
       setResumeUploadResponse({ error: false, success: true });
@@ -95,5 +142,6 @@ export default function () {
     handleUploadResume,
     uploadingResume,
     resumeUploadResponse,
+    handleJobApplication,
   };
 }

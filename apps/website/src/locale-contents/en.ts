@@ -89,8 +89,12 @@ export default {
   homePage: {
     title: 'Discover Your Next Opportunity',
   },
-  jobSearch: {
-    title: 'Job search and recruitment automation',
+  jobSearchPage: {
+    jobApplicationTitle: 'Apply',
+    jobApplicationBtnTxt: 'Apply',
+    applyingForJobTxt: 'Applying for job...',
+    jobApplicationSuccessTxt: 'Job application submitted',
+    jobApplicationErrorTxt: 'Failed to apply for job, try again',
   },
   jobFilterTexts: {
     moreFiltersBtnTxt: 'More filters',

@@ -13,6 +13,7 @@ import JobCard from '@website/components/job-search/job-card';
 import JobDescription, {
   IJobDescriptionTexts,
 } from '@website/components/job-search/job-description';
+import { IResumeUploadForm } from '@website/components/common/resume-upload-form';
 
 export type TContractTime = 'part_time' | 'full_time';
 export type TContractType = 'permanent' | 'contract';
@@ -34,11 +35,23 @@ export interface IJob {
 interface IJobData {
   jobDescriptionTexts: IJobDescriptionTexts;
   noJobsError: INoJobsError;
+  jobApplicationTitle: string;
+  jobApplicationBtnTxt: string;
+  resumeUploadForm: IResumeUploadForm;
+  applyingForJobTxt: string;
+  jobApplicationSuccessTxt: string;
+  jobApplicationErrorTxt: string;
 }
 
 export default function JobData({
   jobDescriptionTexts,
   noJobsError,
+  jobApplicationTitle,
+  jobApplicationBtnTxt,
+  resumeUploadForm,
+  applyingForJobTxt,
+  jobApplicationSuccessTxt,
+  jobApplicationErrorTxt,
 }: IJobData) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -128,6 +141,12 @@ export default function JobData({
             job={jobs?.[activeJobIndex]}
             descriptionRichText={jobDescription}
             jobDescriptionTexts={jobDescriptionTexts}
+            jobApplicationTitle={jobApplicationTitle}
+            jobApplicationBtnTxt={jobApplicationBtnTxt}
+            resumeUploadForm={resumeUploadForm}
+            applyingForJobTxt={applyingForJobTxt}
+            jobApplicationSuccessTxt={jobApplicationSuccessTxt}
+            jobApplicationErrorTxt={jobApplicationErrorTxt}
           />
         )}
       </div>

@@ -12,7 +12,9 @@ export default async function UploadResumePage() {
         {uploadResumePage.title}
       </h1>
 
-      <ResumeUploadForm {...resumeUploadForm} />
+      <div className='w-[24rem]'>
+        <ResumeUploadForm {...resumeUploadForm} />
+      </div>
     </main>
   );
 }
