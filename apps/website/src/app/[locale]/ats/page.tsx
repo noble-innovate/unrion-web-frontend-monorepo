@@ -26,9 +26,7 @@ export default async function ATSPage({ params }: IATSPage) {
       <FeatureSection4 {...pageContents.features?.schedule} />
       <FeatureSection5 {...pageContents.features?.engage} />
       <FAQSection {...faqSection} />
-      <WaitListSection
-        waitlistSectionContent={pageContents.waitingListSection}
-      />
+      <WaitListSection {...pageContents.waitingListSection} />
     </main>
   );
 }

@@ -1,20 +1,28 @@
+import { useEffect, useRef } from 'react';
+
 import { FaRegClock } from 'react-icons/fa';
 import { formatDistanceToNowStrict } from 'date-fns';
 
 import { Badge, Button } from '@packages/ui/components';
+import { cn } from '@packages/utils';
 
 import { IJob } from '@website/components/job-search/job-data';
-import { cn } from '@packages/utils';
-import { useEffect, useRef } from 'react';
 import { contractMap } from '@website/components/job-search/job-description';
+import BookmarkButton from '@website/components/job-search/bookmark-button';
 
 interface IJobCard {
   job: IJob;
   active: boolean;
+  bookmarked: boolean;
   onSelect: () => void;
 }
 
-export default function JobCard({ job, active, onSelect }: IJobCard) {
+export default function JobCard({
+  job,
+  active,
+  bookmarked,
+  onSelect,
+}: IJobCard) {
   const jobCardRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -48,14 +56,19 @@ export default function JobCard({ job, active, onSelect }: IJobCard) {
       variant='outline'
       onClick={onSelect}
     >
-      {created && (
-        <span className='font-medium flex items-center gap-1 text-BodyXS mb-2 text-neutral-500'>
-          <FaRegClock />
-          {formatDistanceToNowStrict(new Date(created), {
-            addSuffix: true,
-          })}
-        </span>
-      )}
+      <div className='flex justify-between items-center w-full mb-2'>
+        {created && (
+          <span className='font-medium flex items-center gap-1 text-BodyXS text-neutral-500'>
+            <FaRegClock />
+            {formatDistanceToNowStrict(new Date(created), {
+              addSuffix: true,
+            })}
+          </span>
+        )}
+
+        <BookmarkButton bookmarked={bookmarked} />
+      </div>
+
       <h1 className='font-semibold text-BodyBASE'>{title}</h1>
       <h3 className='text-rose-900 font-medium'>
         {company.display_name?.toUpperCase()}

@@ -76,6 +76,7 @@ export default function ResumeUploadForm({
     <Fragment>
       <form
         className='w-full flex flex-col items-end gap-4'
+        noValidate
         onSubmit={handleSubmit(
           job ? (d) => handleJobApplication(d, job) : handleUploadResume
         )}
@@ -170,6 +171,10 @@ export default function ResumeUploadForm({
     </Fragment>
   );
 }
+
+/////////////////////////////////////////////////////////////////////////////
+//Error text component
+/////////////////////////////////////////////////////////////////////////////
 
 const ErrorText = ({ children }: { children: ReactNode }) => (
   <p className='w-full text-left text-BodyXS text-red-500'>{children}</p>

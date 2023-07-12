@@ -96,6 +96,9 @@ export default {
     jobApplicationSuccessTxt: 'Job application submitted',
     jobApplicationErrorTxt: 'Failed to apply for job, try again',
   },
+  savedJobPage: {
+    noSavedJobs: 'You have no saved jobs yet',
+  },
   jobFilterTexts: {
     moreFiltersBtnTxt: 'More filters',
     title: 'Filters',
@@ -287,7 +290,7 @@ export default {
     nameInputPlaceholder: 'Full Name',
     nameInputErrorMsg: 'Full name is required',
     emailInputPlaceholder: 'Email',
-    emailInputErrorMsg: 'Email is required',
+    emailInputErrorMsg: 'A valid email is required',
     uploadBtnTxt: 'Drag and drop or click to upload your resume',
     submitBtnTxt: 'Submit',
     uploadingResumeTxt: 'Submitting your resume...',
@@ -387,9 +390,13 @@ export default {
       title: 'Join our waiting list',
       subTitle:
         'Be the first to unlock the benefits of noble ATS & get the first',
-      subTitleSpotlightText: '6 months free',
+      subTitleSpotlightText: '1 month free',
       inputPlaceholder: 'Email',
       inputSubmitButtonText: 'Count me in',
+      waitListEmailValidationErrorMessage: 'A valid email is required',
+      addToWaitListErrorMessage: 'Failed to add to wailist. Please try again',
+      addToWaitListSuccessMessage:
+        'Thanks for the interest, you email has been added to our wait list!',
     },
   },
   faqSection: {

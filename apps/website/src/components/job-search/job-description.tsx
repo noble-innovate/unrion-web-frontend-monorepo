@@ -16,6 +16,7 @@ import {
 } from '@website/components/job-search/job-data';
 import JobApplicationForm from '@website/components/job-search/job-application-form';
 import { IResumeUploadForm } from '@website/components/common/resume-upload-form';
+import BookmarkButton from '@website/components/job-search/bookmark-button';
 
 export const contractMap: Record<TContractTime | TContractType, string> = {
   part_time: 'Part time',
@@ -41,6 +42,7 @@ interface IJobDescription {
   applyingForJobTxt: string;
   jobApplicationSuccessTxt: string;
   jobApplicationErrorTxt: string;
+  bookmarked: boolean;
 }
 
 export default function JobDescription({
@@ -53,6 +55,7 @@ export default function JobDescription({
   applyingForJobTxt,
   jobApplicationSuccessTxt,
   jobApplicationErrorTxt,
+  bookmarked,
 }: IJobDescription) {
   const { moreDetailsBtnTxt, applyBtnTxt, saveBtnTxt } = jobDescriptionTexts;
 
@@ -70,14 +73,21 @@ export default function JobDescription({
   return (
     <div className='p-2 text-BodySM'>
       <div className='border-b border-rose-900 p-2 mb-5'>
-        {created && (
-          <span className='font-medium flex items-center gap-1 text-BodyXS mb-2 text-neutral-500'>
-            <FaRegClock />
-            {formatDistanceToNowStrict(new Date(created), {
-              addSuffix: true,
-            })}
+        <div className='flex items-center justify-between mb-5'>
+          <span className='font-medium flex items-center gap-1 text-BodyXS text-neutral-500'>
+            {created && (
+              <Fragment>
+                <FaRegClock />
+                {formatDistanceToNowStrict(new Date(created), {
+                  addSuffix: true,
+                })}
+              </Fragment>
+            )}
           </span>
-        )}
+
+          <BookmarkButton bookmarked={bookmarked} />
+        </div>
+
         <h1 className='font-semibold text-HeadingSM'>{title}</h1>
         <h3 className='text-rose-900 font-medium'>
           {company?.display_name?.toUpperCase()}

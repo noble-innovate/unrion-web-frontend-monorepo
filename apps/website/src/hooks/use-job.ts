@@ -24,6 +24,7 @@ export default function () {
     data: jobs,
     error: getJobsError,
     isLoading: isLoadingJobs,
+    isValidating: isValidatingJobs,
   } = useSWR(jobSearchQuery, (q) => getJobs(jobSearchCountryCode ?? 'ca', q), {
     revalidateOnFocus: false,
   });
@@ -32,6 +33,7 @@ export default function () {
     data: jobDescription,
     error: getJobDescriptionError,
     isLoading: isLoadingJobDescription,
+    isValidating: isValidatingJobDescription,
   } = useSWR(jobDescriptionUrl, (url) => getJobDetails(url), {
     revalidateOnFocus: false,
   });
@@ -131,13 +133,14 @@ export default function () {
   };
 
   return {
-    isLoadingJobs,
+    isLoadingJobs: isLoadingJobs || isValidatingJobs,
     getJobsError,
     jobs: jobs?.data as IJob[],
     fetchJobs,
     jobDescription: getDescriptionRichtext(jobDescription?.data) as string,
     getJobDescriptionError,
-    isLoadingJobDescription,
+    isLoadingJobDescription:
+      isLoadingJobDescription || isValidatingJobDescription,
     getFullJobDescription,
     handleUploadResume,
     uploadingResume,

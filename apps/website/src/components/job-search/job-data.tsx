@@ -41,6 +41,7 @@ interface IJobData {
   applyingForJobTxt: string;
   jobApplicationSuccessTxt: string;
   jobApplicationErrorTxt: string;
+  savedJobIds: string[];
 }
 
 export default function JobData({
@@ -52,6 +53,7 @@ export default function JobData({
   applyingForJobTxt,
   jobApplicationSuccessTxt,
   jobApplicationErrorTxt,
+  savedJobIds,
 }: IJobData) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -110,6 +112,7 @@ export default function JobData({
             key={job.id}
             job={job}
             active={index === activeJobIndex}
+            bookmarked={savedJobIds?.includes(job.id)}
             onSelect={() => {
               setActiveJobIndex(index);
 
@@ -147,6 +150,7 @@ export default function JobData({
             applyingForJobTxt={applyingForJobTxt}
             jobApplicationSuccessTxt={jobApplicationSuccessTxt}
             jobApplicationErrorTxt={jobApplicationErrorTxt}
+            bookmarked={savedJobIds?.includes(jobs?.[activeJobIndex]?.id)}
           />
         )}
       </div>
