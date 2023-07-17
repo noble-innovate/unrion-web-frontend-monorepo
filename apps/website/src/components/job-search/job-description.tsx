@@ -93,7 +93,7 @@ export default function JobDescription({
           {company?.display_name?.toUpperCase()}
         </h3>
         <p className='text-neutral-600 mt-2'>
-          {location?.area?.slice(0, 2)?.reverse()?.join(', ')}
+          {location?.area?.slice(0, 3)?.reverse()?.join(', ')}
         </p>
 
         <div className='flex items-center flex-wrap mt-3 mb-1 gap-5'>
