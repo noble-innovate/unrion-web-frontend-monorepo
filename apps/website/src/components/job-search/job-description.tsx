@@ -194,7 +194,15 @@ const CTAButtons = ({
   jobApplicationErrorTxt,
 }: ICTAButtons) => (
   <div className='flex items-center gap-5 mt-5 sticky top-0'>
-    <JobApplicationForm
+    <Link
+      className='w-fit flex items-center gap-2 h-9 px-4 py-2 rounded-md text-sm whitespace-nowrap bg-rose-900 text-white shadow hover:bg-rose-900/90'
+      href={job.redirect_url ?? '#'}
+      target='_blank'
+    >
+      <span>{applyBtnTxt}</span>
+      <BsBoxArrowInUpRight className='text-lg' />
+    </Link>
+    {/* <JobApplicationForm
       job={job}
       applyBtnTxt={applyBtnTxt}
       jobApplicationTitle={jobApplicationTitle}
@@ -203,7 +211,7 @@ const CTAButtons = ({
       applyingForJobTxt={applyingForJobTxt}
       jobApplicationSuccessTxt={jobApplicationSuccessTxt}
       jobApplicationErrorTxt={jobApplicationErrorTxt}
-    />
+    /> */}
 
     <Button variant='outline'>{saveBtnTxt}</Button>
   </div>

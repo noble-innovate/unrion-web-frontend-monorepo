@@ -318,7 +318,7 @@ export default {
     },
     benefitsInfoTitle: 'Applicants',
     benefitsInfo1: 'Rank applicants based on your pre-defined parameters',
-    benefitsInfo2: 'Filter applicants based on any set of rules',
+    benefitsInfo2: 'Filter applicants based on the job requirements.',
     applicantImageUrls: [
       'https://unrion-website-mages.s3.us-east-2.amazonaws.com/person-1.jpg',
       'https://unrion-website-mages.s3.us-east-2.amazonaws.com/person-2.jpg',
@@ -337,7 +337,7 @@ export default {
       saveCost: {
         title: 'Save cost',
         description:
-          'Screen hundreds of applications in seconds based on your parameters',
+          'Screen hundreds of applications in seconds based on your criteria',
         imageUrl:
           'https://unrion-website-mages.s3.us-east-2.amazonaws.com/resumes.png',
       },
@@ -349,12 +349,12 @@ export default {
       },
       powerful: {
         title: 'Simple and powerful',
-        description: 'Shortlist matching talents in no time',
+        description: 'Shortlist qualified candidates in no time',
         imageUrl:
           'https://unrion-website-mages.s3.us-east-2.amazonaws.com/international-group-of-people-male-and-female-image-collage.jpg',
         processes: [
-          'Upload resumes or connect your recruitment system',
-          'Add screening rules and filter parameters',
+          'Upload resumes or connect your career page',
+          'Add screening requirements',
           'View shortlisted candidates. Filtered and ranked!',
         ],
       },

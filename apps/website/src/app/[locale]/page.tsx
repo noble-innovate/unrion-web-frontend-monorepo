@@ -15,7 +15,8 @@ export default async function HomePage({ params }: IHomePage) {
   const { homePage, jobFilterTexts, jobFilters, noJobsError } =
     localeContents.en;
 
-  const userCountryCode = await getUserCountryCode();
+  // const userCountryCode = await getUserCountryCode();
+  const userCountryCode = 'ca';
   const jobs = await getUserJobs(userCountryCode);
 
   return (

@@ -56,6 +56,7 @@ export default function ResumeUploadForm({
     control,
     watch,
     handleSubmit,
+    reset,
   } = useForm<IResumeUploadFormValues>();
 
   useEffect(() => {
@@ -71,6 +72,10 @@ export default function ResumeUploadForm({
     resumeUploadResponse,
     handleJobApplication,
   } = useJob();
+
+  useEffect(() => {
+    if (resumeUploadResponse.success) reset();
+  }, [resumeUploadResponse]);
 
   return (
     <Fragment>

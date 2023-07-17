@@ -112,7 +112,16 @@ export default function JobSearchForm({
 
       <div className='min-h-full min-w-[1px] bg-neutral-300' />
 
-      <JobCountrySearchInput
+      <JobSearchInput
+        id='country'
+        name='country'
+        icon={FiGlobe}
+        placeholder={countryInputPlaceholder}
+        value={filters.c ? getAllInfoByISO(filters.c).countryName : ''}
+        readOnly
+      />
+
+      {/* <JobCountrySearchInput
         placeholder={countryInputPlaceholder}
         searchPlaceholder={countrySearchInputPlaceholder}
         value={filters.c ? getAllInfoByISO(filters.c).countryName : ''}
@@ -128,7 +137,7 @@ export default function JobSearchForm({
             c: isoData?.iso?.toLowerCase(),
           }))
         }
-      />
+      /> */}
       <Button className='rounded-full px-5 whitespace-nowrap'>
         {jobSearchSubmitButtonText}
       </Button>
