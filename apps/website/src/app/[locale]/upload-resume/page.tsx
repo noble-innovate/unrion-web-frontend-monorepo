@@ -1,8 +1,6 @@
 import ResumeUploadForm from '@website/components/common/resume-upload-form';
 import { localeContents } from '@website/locale-contents/utils';
 
-interface IUploadResumePage {}
-
 export default async function UploadResumePage() {
   const { uploadResumePage, resumeUploadForm } = localeContents.en;
 
