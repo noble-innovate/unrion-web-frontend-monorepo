@@ -1,11 +1,13 @@
 'use client';
 
+import { ReactNode } from 'react';
+
 import { useForm } from 'react-hook-form';
+import { FiArrowRight } from 'react-icons/fi';
 
 import { Button, Input, Loader } from '@packages/ui/components';
-import useATS from '@website/hooks/use-ats';
-import { ReactNode } from 'react';
-import { FiArrowRight } from 'react-icons/fi';
+
+import useMessage from '@website/hooks/use-message';
 
 interface IWaitListSection {
   title: string;
@@ -33,11 +35,12 @@ export default function WaitListSection({
     formState: { errors },
     handleSubmit,
   } = useForm<{ email: string }>();
+
   const {
     handleAddToATSWaitList,
     addingToATSWaitList,
     addToATSWaitListResponse,
-  } = useATS();
+  } = useMessage();
 
   return (
     <section className='contained flex flex-col justify-center py-10 lg:py-20 items-center gap-5 lg:gap-10'>

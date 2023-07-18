@@ -8,6 +8,7 @@ import { FiArrowUpRight, FiCheckCircle, FiEdit2 } from 'react-icons/fi';
 import { Button, Input, Loader, Textarea } from '@packages/ui/components';
 
 import useJob from '@website/hooks/use-job';
+import useMessage from '@website/hooks/use-message';
 
 export interface IContactUsFormValues {
   fullName: string;
@@ -40,33 +41,29 @@ export default function ContactUsForm({
   contactUsSuccessTxt,
   contactUsErrorTxt,
 }: IContactUsForm) {
-  const [uploadedFileName, setUploadedFileName] = useState<string>();
-
   const {
     register,
     formState: { errors },
-    control,
     handleSubmit,
     reset,
   } = useForm<IContactUsFormValues>();
 
   const {
-    handleUploadResume,
-    uploadingResume,
-    resumeUploadResponse,
-    handleJobApplication,
-  } = useJob();
+    handleSaveContactUsMessage,
+    savingContactUsMessage,
+    saveContactUsMessageResponse,
+  } = useMessage();
 
   useEffect(() => {
-    if (resumeUploadResponse.success) reset();
-  }, [resumeUploadResponse]);
+    if (saveContactUsMessageResponse.success) reset();
+  }, [saveContactUsMessageResponse]);
 
   return (
     <Fragment>
       <form
         className='w-full flex flex-col items-end gap-4'
         noValidate
-        onSubmit={handleSubmit(() => console.log('submitted'))}
+        onSubmit={handleSubmit(handleSaveContactUsMessage)}
       >
         <div className='flex flex-col lg:flex-row items-center gap-4 w-full'>
           <div className='w-full'>
@@ -116,7 +113,7 @@ export default function ContactUsForm({
           {errors.email && <ErrorText>{errors.message?.message}</ErrorText>}
         </div>
 
-        {resumeUploadResponse.error && (
+        {saveContactUsMessageResponse.error && (
           <ErrorText>{contactUsErrorTxt}</ErrorText>
         )}
 
@@ -125,14 +122,14 @@ export default function ContactUsForm({
           <FiArrowUpRight className='text-xl' />
         </Button>
       </form>
-      {uploadingResume && (
+      {savingContactUsMessage && (
         <div className='fixed inset-0 flex flex-col justify-center items-center gap-5 z-50 bg-white/90'>
           <Loader />
           <p>{sendingMessageTxt}</p>
         </div>
       )}
 
-      {resumeUploadResponse.success && (
+      {saveContactUsMessageResponse.success && (
         <div className='fixed inset-0 flex flex-col justify-center items-center gap-5 z-50 bg-white/90 text-green-600 text-BodyLG'>
           <FiCheckCircle className='text-5xl' />
           <p>{contactUsSuccessTxt}</p>

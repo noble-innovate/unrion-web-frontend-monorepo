@@ -3,9 +3,10 @@ import Image from 'next/image';
 import parse from 'html-react-parser';
 
 import { localeContents } from '@website/locale-contents/utils';
+import Link from 'next/link';
 
 export default function AboutUsPage() {
-  const { aboutUs } = localeContents.en;
+  const { aboutUs, contactUs } = localeContents.en;
 
   return (
     <main>
@@ -50,6 +51,17 @@ export default function AboutUsPage() {
           <p className='text-BodySM lg:text-BodyLG w-full lg:w-1/2'>
             {parse(aboutUs.jobSeekersInfo.description)}
           </p>
+        </div>
+      </section>
+
+      <section className='contained flex justify-center py-5 lg:py-10 mb-10 lg:mb-20'>
+        <div className='text-BodyXL lg:text-HeadingSM'>
+          <Link
+            className='w-fit flex items-center gap-2 px-6 py-3 lg:px-8 lg:py-4 rounded-md text-BodyXL  lg:text-Body2XL whitespace-nowrap bg-rose-900 text-white shadow hover:bg-rose-900/90'
+            href={'/contact'}
+          >
+            <span>{contactUs.subTitle}</span>
+          </Link>
         </div>
       </section>
     </main>
