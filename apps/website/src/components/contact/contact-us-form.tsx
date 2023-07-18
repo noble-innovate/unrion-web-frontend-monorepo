@@ -68,7 +68,7 @@ export default function ContactUsForm({
         noValidate
         onSubmit={handleSubmit(() => console.log('submitted'))}
       >
-        <div className='flex items-center gap-4 w-full'>
+        <div className='flex flex-col lg:flex-row items-center gap-4 w-full'>
           <div className='w-full'>
             <Input
               id='fullName'
