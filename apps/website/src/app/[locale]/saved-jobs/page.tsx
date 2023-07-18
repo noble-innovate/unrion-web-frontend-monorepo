@@ -1,8 +1,6 @@
 import { localeContents } from '@website/locale-contents/utils';
 import { BsBookmarks } from 'react-icons/bs';
 
-interface ISavedJobPage {}
-
 const { savedJobPage } = localeContents.en;
 
 export default function SavedJobPage() {

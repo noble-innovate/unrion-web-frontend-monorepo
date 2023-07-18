@@ -23,8 +23,8 @@ export default async function HomePage({ params }: IHomePage) {
     <main>
       <section className='lg:h-60 bg-rose-50 pb-5 lg:pb-0 border-b border-rose-200'>
         <div className='h-full contained flex'>
-          <div className='h-full flex flex-col justify-center w-full lg:w-[55rem] relative z-10'>
-            <h1 className='text-BodyXL lg:text-HeadingBASE font-medium my-5 lg:my-0 lg:mb-5'>
+          <div className='h-full flex flex-col justify-center items-center lg:items-start w-full lg:w-[55rem] relative z-10'>
+            <h1 className='text-BodyXL lg:text-HeadingBASE font-medium my-5 text-center lg:text-left lg:my-0 lg:mb-5'>
               {homePage.title}
             </h1>
 

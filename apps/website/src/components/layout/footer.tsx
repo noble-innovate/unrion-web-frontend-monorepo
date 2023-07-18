@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import {
   SlSocialLinkedin,
   SlSocialTwitter,
@@ -7,24 +9,23 @@ import {
 import { NextNavLink } from '@packages/ui/components';
 
 import Logo from '@website/components/common/logo';
-import Link from 'next/link';
 import { IWebsiteNavLinks } from '@website/app/[locale]/layout';
 
 const socialMediaLinks = [
   {
     id: 'twitter',
     icon: SlSocialTwitter,
-    link: '#',
+    link: 'https://twitter.com/NobleD_',
   },
   {
     id: 'linkedin',
     icon: SlSocialLinkedin,
-    link: '#',
+    link: 'https://www.linkedin.com/company/80262235/',
   },
   {
     id: 'youtube',
     icon: SlSocialYoutube,
-    link: '#',
+    link: 'https://www.youtube.com/channel/UCnDAeKen0cm_g099PnV98Dw',
   },
 ];
 
@@ -49,7 +50,7 @@ export default function Footer({ title, websiteNavLinks }: IFooter) {
         <ol className='flex items-center gap-5'>
           {socialMediaLinks.map(({ id, icon: Icon, link }) => (
             <li key={id}>
-              <Link href={link}>
+              <Link href={link} target='_blank'>
                 <Icon className='text-3xl text-rose-900 border border-rose-100 hover:border-rose-900 p-1 rounded-lg' />
               </Link>
             </li>

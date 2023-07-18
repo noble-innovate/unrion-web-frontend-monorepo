@@ -3,8 +3,6 @@ import { localeContents } from '@website/locale-contents/utils';
 import JobFilters from '@website/components/common/job-filters';
 import JobData from '@website/components/job-search/job-data';
 
-interface IJobSearchPage {}
-
 export default async function JobSearchPage() {
   const {
     jobSearchPage,

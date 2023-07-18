@@ -17,17 +17,17 @@ export default {
     {
       id: 'contact-us',
       title: 'Contact us',
-      link: '/contact-us',
+      link: '/contact',
       nav: false,
       footerGroup: 1,
     },
-    {
-      id: 'blog',
-      title: 'Blog',
-      link: '/blog',
-      nav: false,
-      footerGroup: 1,
-    },
+    // {
+    //   id: 'blog',
+    //   title: 'Blog',
+    //   link: '/blog',
+    //   nav: false,
+    //   footerGroup: 1,
+    // },
     {
       id: 'job-search',
       title: 'Job search',
@@ -422,5 +422,40 @@ export default {
           'We have tremendous industry experience, and this tool is specifically designed to eliminate stress associated with reviewing resumes, scheduling interviews, tracking candidates progress, internal communication, decision making and onboarding. By using noble ATS you will save about 40% hiring cost and time to fill.  ',
       },
     ],
+  },
+  aboutUs: {
+    title: 'We simplify recruitment.',
+    subTitle: 'Discover, Connect, and Hire effortlessly',
+    titleText:
+      'We are dedicated to revolutionizing the job search and recruitment process. As a leading provider of cutting-edge ATS software and a comprehensive job search portal, we empower both job seekers and employers to connect, collaborate, and unlock their full potential.',
+    employerInfo: {
+      title: 'Employers',
+      description:
+        'Our ATS software is designed to streamline the hiring process, offering powerful features such as automated candidate screening, intuitive applicant tracking, and seamless collaboration tools. With our innovative technology, employers can efficiently manage job postings, track candidate progress, and make data-driven hiring decisions with ease. We believe that by leveraging the power of technology, we can help companies find the perfect fit for their teams while saving valuable time and resources.',
+    },
+    jobSeekersInfo: {
+      title: 'Job seekers',
+      description:
+        "For job seekers, our job search portal provides a user-friendly platform to discover and apply for a wide range of opportunities. With our advanced search filters, personalized recommendations, and real-time updates, we aim to empower individuals in their quest for professional growth. Whether you're a seasoned professional or just starting your career journey, our portal offers a wealth of resources, including resume-building tools, interview tips, and industry insights to support your success.",
+    },
+  },
+  contactUs: {
+    title: 'We love to hear from you,',
+    subTitle: 'Get in touch 👋',
+    form: {
+      nameInputPlaceholder: 'Full Name',
+      nameInputErrorMsg: 'Full name is required',
+      emailInputPlaceholder: 'Email',
+      emailInputErrorMsg: 'A valid email is required',
+      messageInputPlaceholder: 'Your message',
+      messageInputErrorMsg: 'A message is required 😊',
+      submitBtnTxt: 'Send',
+      sendingMessageTxt: 'Sending message...',
+      contactUsSuccessTxt: 'Your message has been sent!',
+      contactUsErrorTxt: 'Failed to send message',
+    },
+    address: 'Unit 280, 23 Sunpark Drive SE, Calgary, AB, Canada, Alberta',
+    phone: '(403) 879-6819',
+    connect: 'connect@nobled.ca',
   },
 };
