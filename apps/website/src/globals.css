@@ -10,4 +10,21 @@
   .job-description-box strong {
     @apply font-semibold;
   }
+
+  .legal-doc h1 {
+    @apply text-HeadingSM font-semibold mb-5;
+  }
+
+  .legal-doc h2 {
+    @apply text-BodyXL font-medium mb-5;
+  }
+  .legal-doc p {
+    @apply mb-5;
+  }
+  .legal-doc ul {
+    @apply mt-0 mb-5 pl-10 list-disc;
+  }
+  .legal-doc a {
+    @apply text-blue-500 underline;
+  }
 }
