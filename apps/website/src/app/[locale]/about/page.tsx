@@ -1,9 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import parse from 'html-react-parser';
 
 import { localeContents } from '@website/locale-contents/utils';
-import Link from 'next/link';
 
 export default function AboutUsPage() {
   const { aboutUs, contactUs } = localeContents.en;

@@ -1,5 +1,6 @@
-import { localeContents } from '@website/locale-contents/utils';
 import { BsBookmarks } from 'react-icons/bs';
+
+import { localeContents } from '@website/locale-contents/utils';
 
 const { savedJobPage } = localeContents.en;
 
