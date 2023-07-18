@@ -6,7 +6,7 @@ import FeatureSection3 from '@website/components/ats/feature-section-3';
 import FeatureSection4 from '@website/components/ats/feature-section-4';
 import FeatureSection5 from '@website/components/ats/feature-section-5';
 import HeroSection from '@website/components/ats/hero-section';
-import WaitListSection from '@website/components/ats/wailist-section';
+import WaitListSection from '@website/components/ats/waitlist-section';
 import { TLocale, localeContents } from '@website/locale-contents/utils';
 
 interface IATSPage {
