@@ -431,12 +431,12 @@ export default {
     employerInfo: {
       title: 'Employers',
       description:
-        'Our ATS software is designed to streamline the hiring process, offering powerful features such as automated candidate screening, intuitive applicant tracking, and seamless collaboration tools. With our innovative technology, employers can efficiently manage job postings, track candidate progress, and make data-driven hiring decisions with ease. We believe that by leveraging the power of technology, we can help companies find the perfect fit for their teams while saving valuable time and resources.',
+        '<p>Our AI ATS software is designed to streamline your hiring process, offering powerful features such as automated candidate screening, intuitive applicant tracking, and seamless collaboration tools.</p><br/><p>With our innovative AI technology, you can efficiently manage job postings, track candidate progress, and make data-driven hiring decisions with ease.</p><br/><p>We believe that by leveraging the power of technology, we can help companies find the perfect fit for their teams while saving valuable time and resources.</p>',
     },
     jobSeekersInfo: {
       title: 'Job seekers',
       description:
-        "For job seekers, our job search portal provides a user-friendly platform to discover and apply for a wide range of opportunities. With our advanced search filters, personalized recommendations, and real-time updates, we aim to empower individuals in their quest for professional growth. Whether you're a seasoned professional or just starting your career journey, our portal offers a wealth of resources, including resume-building tools, interview tips, and industry insights to support your success.",
+        "<p>Our job search portal provides a user-friendly platform to discover and apply for a wide range of opportunities.</p><br/><p>With our advanced search filters, personalized recommendations, and real-time updates, we aim to empower you in your quest for professional growth.</p><br/><p>Whether you're a seasoned professional or just starting your career journey, our portal offers wealth of resources, including resume-building tools, interview tips, and industry insights to support your success.</p>",
     },
   },
   contactUs: {

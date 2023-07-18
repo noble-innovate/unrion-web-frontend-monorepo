@@ -7,14 +7,14 @@ import { formatDistanceToNowStrict } from 'date-fns';
 import { FaRegClock } from 'react-icons/fa';
 import { BsBoxArrowInUpRight } from 'react-icons/bs';
 
-import { Badge, Button } from '@packages/ui/components';
+import { Badge } from '@packages/ui/components';
 
 import {
   IJob,
   TContractTime,
   TContractType,
 } from '@website/components/job-search/job-data';
-import JobApplicationForm from '@website/components/job-search/job-application-form';
+
 import { IResumeUploadForm } from '@website/components/common/resume-upload-form';
 import BookmarkButton from '@website/components/job-search/bookmark-button';
 

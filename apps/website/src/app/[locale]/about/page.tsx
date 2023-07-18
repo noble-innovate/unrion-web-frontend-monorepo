@@ -1,5 +1,8 @@
-import { localeContents } from '@website/locale-contents/utils';
 import Image from 'next/image';
+
+import parse from 'html-react-parser';
+
+import { localeContents } from '@website/locale-contents/utils';
 
 export default function AboutUsPage() {
   const { aboutUs } = localeContents.en;
@@ -35,7 +38,7 @@ export default function AboutUsPage() {
           </h2>
 
           <p className='text-BodySM lg:text-BodyLG w-full lg:w-1/2'>
-            {aboutUs.employerInfo.description}
+            {parse(aboutUs.employerInfo.description)}
           </p>
         </div>
 
@@ -45,7 +48,7 @@ export default function AboutUsPage() {
           </h2>
 
           <p className='text-BodySM lg:text-BodyLG w-full lg:w-1/2'>
-            {aboutUs.jobSeekersInfo.description}
+            {parse(aboutUs.jobSeekersInfo.description)}
           </p>
         </div>
       </section>

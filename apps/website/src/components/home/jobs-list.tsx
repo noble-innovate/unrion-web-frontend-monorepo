@@ -55,7 +55,7 @@ export default function JobList({
             ) => (
               <div
                 key={id}
-                className='flex flex-col lg:flex-row lg:justify-between lg:items-center w-full gap-2 rounded-lg lg:rounded-full border border-neutral-100 p-2 lg:py-1 lg:px-5  hover:border-gray-300 cursor-pointer'
+                className='flex flex-col lg:flex-row lg:justify-between lg:items-center w-full gap-2 lg:gap-5 rounded-lg lg:rounded-full border border-neutral-100 p-2 lg:py-1 lg:px-5  hover:border-gray-300 cursor-pointer'
                 onClick={() =>
                   router.push(`job-search?c=${userCountryCode}&ji=${index}`)
                 }
@@ -71,7 +71,7 @@ export default function JobList({
                   <p className='text-neutral-600'>{company.display_name}</p>
                 </div>
 
-                <div className='flex items-center lg:justify-center gap-3 lg:w-1/5'>
+                <div className='flex items-center gap-3 lg:w-2/12'>
                   {contract_time && (
                     <Badge
                       className='py-1 px-2 text-BodyXS  font-medium group-hover:text-neutral-900 whitespace-nowrap'
@@ -91,7 +91,7 @@ export default function JobList({
                   )}
                 </div>
 
-                <p className='whitespace-nowrap lg:w-1/5'>
+                <p className='whitespace-nowrap w-3/12'>
                   {location.area.slice(0, 3).reverse().join(', ')}
                 </p>
 
