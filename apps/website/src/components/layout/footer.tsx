@@ -42,7 +42,7 @@ export default function Footer({ title, websiteNavLinks }: IFooter) {
   const footerLinkGroups = Object.values(footerLinkGroup);
 
   return (
-    <nav className='flex gap-52 contained py-10'>
+    <nav className='flex flex-col-reverse lg:flex-row gap-10 lg:gap-52 contained py-10'>
       <section className='flex flex-col gap-5'>
         <Logo variant='outline' />
         <p className='text-gray-700 max-w-[12rem]'>{title}</p>
@@ -57,7 +57,7 @@ export default function Footer({ title, websiteNavLinks }: IFooter) {
         </ol>
       </section>
 
-      <section className='flex justify-between flex-1 max-w-[36rem]'>
+      <section className='flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between flex-1 w-full lg:max-w-[36rem]'>
         {footerLinkGroups.map((footerLinkGroup, index) => (
           <ol key={index} className='flex flex-col gap-5'>
             {footerLinkGroup.map(({ id, title, link }) => (

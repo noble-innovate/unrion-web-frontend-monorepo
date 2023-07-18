@@ -6,6 +6,6 @@
 
 @layer components {
   .contained {
-    @apply mx-auto max-w-[90rem];
+    @apply px-5 xl:mx-auto w-full max-w-[90rem];
   }
 }

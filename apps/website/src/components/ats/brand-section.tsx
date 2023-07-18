@@ -6,7 +6,7 @@ export default function BrandSection({
   brandImageUrls: string[];
 }) {
   return (
-    <section className='contained flex items-center py-20 justify-between'>
+    <section className='contained flex items-center py-20 justify-center lg:justify-between flex-wrap gap-5'>
       {brandImageUrls.map((brandImageUrl, index) => (
         <Image
           key={index}

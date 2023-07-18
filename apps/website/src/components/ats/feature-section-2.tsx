@@ -12,12 +12,12 @@ export default function FeatureSection2({
   imageUrl,
 }: IFeatureSection2) {
   return (
-    <section className='contained flex flex-col py-20 gap-10'>
-      <div className='max-w-[44%]'>
-        <h2 className='text-HeadingBASE text-neutral-500'>
+    <section className='contained flex flex-col py-10 lg:py-20 gap-10'>
+      <div className='w-full lg:max-w-[44%]'>
+        <h2 className='text-HeadingXS lg:text-HeadingBASE text-neutral-500'>
           {title.toUpperCase()}
         </h2>
-        <h4 className='text-HeadingXL'>{description}</h4>
+        <h4 className='text-HeadingSM lg:text-HeadingXL'>{description}</h4>
       </div>
 
       <Image

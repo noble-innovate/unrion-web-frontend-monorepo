@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { Button, Input, Loader } from '@packages/ui/components';
 import useATS from '@website/hooks/use-ats';
 import { ReactNode } from 'react';
+import { FiArrowRight } from 'react-icons/fi';
 
 interface IWaitListSection {
   title: string;
@@ -39,10 +40,10 @@ export default function WaitListSection({
   } = useATS();
 
   return (
-    <section className='contained flex flex-col justify-center py-20 items-center gap-10'>
-      <h1 className='text-center text-HeadingXL'>{title}</h1>
+    <section className='contained flex flex-col justify-center py-10 lg:py-20 items-center gap-5 lg:gap-10'>
+      <h1 className='text-center text-HeadingXS lg:text-HeadingXL'>{title}</h1>
 
-      <p className='text-center text-HeadingBASE text-neutral-600 max-w-[48rem] font-light'>
+      <p className='text-center text-BodyLG  lg:text-HeadingBASE text-neutral-600 w-full lg:max-w-[48rem] font-light'>
         {subTitle}{' '}
         <span className='text-rose-900 font-normal'>
           {subTitleSpotlightText}
@@ -50,7 +51,7 @@ export default function WaitListSection({
       </p>
 
       <form
-        className='w-[28rem] mt-3'
+        className='w-full lg:w-[28rem] mt-3'
         noValidate
         onSubmit={handleSubmit((d) => handleAddToATSWaitList(d.email))}
       >
@@ -72,7 +73,10 @@ export default function WaitListSection({
             <Loader />
           ) : (
             <Button className='whitespace-nowrap'>
-              {inputSubmitButtonText}
+              <span className='hidden lg:block'>{inputSubmitButtonText}</span>
+              <span className='block lg:hidden'>
+                <FiArrowRight />
+              </span>
             </Button>
           )}
         </div>

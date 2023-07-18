@@ -29,15 +29,15 @@ export default function HeroSection({
   applicantImageUrls,
 }: IHeroSection) {
   return (
-    <section className='contained flex flex-col items-center py-8'>
-      <h5 className='pt-12 pb-5 text-HeadingXS text-rose-900'>
+    <section className='contained flex flex-col lg:items-center py-8'>
+      <h5 className='pt-12 pb-5 text-BodyLG lg:text-HeadingXS text-rose-900'>
         {heroIntroText}
       </h5>
-      <h1 className='text-Heading2XL text-center font-medium max-w-[76rem] pb-12'>
+      <h1 className='text-HeadingLG lg:text-Heading2XL lg:text-center font-medium w-full lg:max-w-[76rem] pb-12'>
         {heroTitle}
       </h1>
 
-      <div className='w-full flex items-center justify-between gap-5'>
+      <div className='w-full flex flex-col lg:flex-row lg:items-center justify-between gap-5'>
         <div className='flex flex-col gap-14 text-rose-900'>
           <div className='flex items-center gap-4'>
             <Image

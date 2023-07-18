@@ -23,16 +23,18 @@ export default function IFeatureSection({
   services,
 }: IFeatureSection5) {
   return (
-    <section className='contained flex py-20 items-center justify-between gap-10'>
+    <section className='contained flex flex-col lg:flex-row py-10 lg:py-20 items-center justify-between gap-10'>
       <div className='text-left'>
-        <h2 className='text-HeadingBASE text-neutral-500'>
+        <h2 className='text-HeadingXS  lg:text-HeadingBASE text-neutral-500'>
           {title.toUpperCase()}
         </h2>
-        <h4 className='text-HeadingXL w-[38rem]'>{description}</h4>
+        <h4 className='text-HeadingSM lg:text-HeadingXL w-full lg:w-[38rem]'>
+          {description}
+        </h4>
       </div>
 
-      <div className='flex items-center'>
-        <div className='relative rounded-full h-[40rem] w-[30rem]'>
+      <div className='flex flex-col lg:flex-row items-center'>
+        <div className='relative rounded-full h-[26.7rem] lg:h-[40rem] w-[20rem] lg:w-[30rem]'>
           <Image
             className='object-cover rounded-full'
             src={imageUrl}
@@ -41,7 +43,7 @@ export default function IFeatureSection({
           />
         </div>
 
-        <div className='flex flex-col border-y border-neutral-200 divide-y divide-neutral-200'>
+        <div className='flex flex-col border-y border-neutral-200 divide-y divide-neutral-200 w-full lg:w-auto mt-5 lg:mt-0'>
           {services.map(({ id, text }) => {
             const Icon = engageInfoIconMap[id];
 

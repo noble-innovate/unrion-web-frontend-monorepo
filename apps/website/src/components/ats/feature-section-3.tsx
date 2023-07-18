@@ -14,12 +14,12 @@ export default function FeatureSection3({
   processes,
 }: IFeatureSection3) {
   return (
-    <section className='contained flex flex-col items-center py-20 gap-10'>
+    <section className='contained flex flex-col items-center py-10 lg:py-20 gap-10'>
       <div className='text-center'>
-        <h2 className='text-HeadingBASE text-neutral-500'>
+        <h2 className='text-HeadingXS lg:text-HeadingBASE text-neutral-500'>
           {title.toUpperCase()}
         </h2>
-        <h4 className='text-HeadingXL'>{description}</h4>
+        <h4 className='text-HeadingSM lg:text-HeadingXL'>{description}</h4>
       </div>
 
       <div className='relative w-full h-[24rem]'>
@@ -31,17 +31,17 @@ export default function FeatureSection3({
         />
       </div>
 
-      <div className='flex gap-28 justify-center w-[72rem]'>
+      <div className='flex flex-col lg:flex-row gap-12 lg:gap-28 justify-center w-full lg:w-[72rem]'>
         {processes.map((process, index) => (
           <div key={index} className='w-fit'>
             <div className='flex items-end justify-between'>
-              <h5 className='text-rose-50 text-[12rem] leading-none font-serif text-stroke-1-rose-300'>
+              <h5 className='text-rose-50 text-[6rem] lg:text-[12rem] leading-none font-serif text-stroke-1-rose-300'>
                 {index + 1}
               </h5>
               <hr className='border-t-0 border-b border-rose-300 w-20' />
             </div>
 
-            <p className='text-HeadingBASE font-extralight text-neutral-800'>
+            <p className='text-HeadingXS lg:text-HeadingBASE font-extralight text-neutral-800'>
               {process}
             </p>
           </div>
