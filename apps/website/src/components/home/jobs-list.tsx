@@ -28,7 +28,7 @@ export default function JobList({
 }: IJobList) {
   const router = useRouter();
 
-  const hasJobs = jobs.length > 0;
+  const hasJobs = jobs?.length > 0;
 
   return (
     <Fragment>
