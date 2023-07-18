@@ -34,8 +34,8 @@ export default function NavBar({ websiteNavLinks, infoBar }: INavBar) {
     <Fragment>
       {!isATSPage && (
         <div className='bg-rose-900 py-2 text-white'>
-          <div className='contained w-fit text-Body2XS lg:text-BodySM flex items-center justify-center'>
-            <p className='flex-1 text-center'>
+          <div className='contained w-fit text-BodyXS lg:text-BodySM flex items-center justify-center'>
+            <p className='text-center w-[85%] lg:flex-1'>
               {`${infoBar.message} - `}{' '}
               <Link className='border-b' href='/ats'>
                 {infoBar.ctaButtonText}
