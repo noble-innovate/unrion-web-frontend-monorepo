@@ -21,10 +21,10 @@ export default async function HomePage({ params }: IHomePage) {
 
   return (
     <main>
-      <section className='h-60 bg-rose-50 border-b border-rose-200'>
+      <section className='lg:h-60 bg-rose-50 pb-5 lg:pb-0 border-b border-rose-200'>
         <div className='h-full contained flex'>
-          <div className='h-full flex flex-col justify-center w-[55rem] relative z-10'>
-            <h1 className='text-HeadingBASE font-medium mb-5'>
+          <div className='h-full flex flex-col justify-center w-full lg:w-[55rem] relative z-10'>
+            <h1 className='text-BodyXL lg:text-HeadingBASE font-medium my-5 lg:my-0 lg:mb-5'>
               {homePage.title}
             </h1>
 
@@ -49,7 +49,7 @@ export default async function HomePage({ params }: IHomePage) {
             />
           </div>
 
-          <div className='relative w-[20rem] -ml-5'>
+          <div className='hidden lg:block relative w-[20rem] -ml-5'>
             <Image
               className='object-cover object-top'
               src={HomePageHeroImage}

@@ -12,3 +12,4 @@ export * from './loader';
 export * from './popover';
 export * from './unrion-loader';
 export * from './file-upload-input';
+export * from './navigation-menu';

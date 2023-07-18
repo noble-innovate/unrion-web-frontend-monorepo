@@ -82,12 +82,12 @@ export default function JobSearchForm({
 
   return (
     <form
-      className='bg-white rounded-full w-full flex items-center p-2 pl-4 gap-5 border border-rose-50'
+      className='bg-white rounded-lg lg:rounded-full w-full flex flex-col lg:flex-row lg:items-center lg:p-2 lg:pl-4 lg:gap-5 border border-rose-50'
       onSubmit={(e) => handleSubmit(e, filters)}
     >
       <JobSearchInput
         id='keyword'
-        className='w-[50%]'
+        className='lg:w-[50%]'
         name='keyword'
         placeholder={keywordInputPlaceholder}
         value={filters.k}
@@ -95,7 +95,7 @@ export default function JobSearchForm({
         onChange={(e) => setFilters((f) => ({ ...f, k: e.target.value }))}
       />
 
-      <div className='min-h-full min-w-[1px] bg-neutral-300' />
+      <div className='min-w-full min-h-[1px] lg:min-h-full lg:min-w-[1px] bg-rose-50' />
 
       <JobCitySearchInput
         placeholder={cityInputPlaceholder}
@@ -110,7 +110,7 @@ export default function JobSearchForm({
         }
       />
 
-      <div className='min-h-full min-w-[1px] bg-neutral-300' />
+      <div className='min-w-full min-h-[1px] lg:min-h-full lg:min-w-[1px] bg-rose-50' />
 
       <JobSearchInput
         id='country'
@@ -138,9 +138,14 @@ export default function JobSearchForm({
           }))
         }
       /> */}
-      <Button className='rounded-full px-5 whitespace-nowrap'>
-        {jobSearchSubmitButtonText}
-      </Button>
+
+      <div className='lg:hidden min-w-full min-h-[1px] lg:min-h-full lg:min-w-[1px] bg-rose-50' />
+
+      <div className='w-full lg:w-auto p-2 lg:p-0'>
+        <Button className='rounded-full w-full px-5 whitespace-nowrap'>
+          {jobSearchSubmitButtonText}
+        </Button>
+      </div>
     </form>
   );
 }
@@ -159,7 +164,12 @@ const JobSearchInput = ({
   icon: Icon,
   ...inputProps
 }: IJobSearchInput) => (
-  <div className={cn('flex items-center h-full gap-2 rounded-lg', className)}>
+  <div
+    className={cn(
+      'flex items-center h-full gap-2 rounded-lg px-2 py-1 lg:px-0 lg:py-0',
+      className
+    )}
+  >
     <Icon className='text-BodyLG text-neutral-500' />
     <Input className='border-none shadow-none p-1' {...inputProps} />
   </div>

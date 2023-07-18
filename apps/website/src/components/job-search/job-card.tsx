@@ -9,11 +9,14 @@ import { cn } from '@packages/utils';
 import { IJob } from '@website/components/job-search/job-data';
 import { contractMap } from '@website/components/job-search/job-description';
 import BookmarkButton from '@website/components/job-search/bookmark-button';
+import Link from 'next/link';
+import { BsBoxArrowInUpRight } from 'react-icons/bs';
 
 interface IJobCard {
   job: IJob;
   active: boolean;
   bookmarked: boolean;
+  moreDetailsBtnTxt?: string;
   onSelect: () => void;
 }
 
@@ -21,6 +24,7 @@ export default function JobCard({
   job,
   active,
   bookmarked,
+  moreDetailsBtnTxt,
   onSelect,
 }: IJobCard) {
   const jobCardRef = useRef<HTMLButtonElement>(null);
@@ -91,9 +95,18 @@ export default function JobCard({
         )}
       </div>
 
-      <p className='font-light w-full max-h-[8rem]'>
-        {`${description.slice(0, 320)} ...`}
-      </p>
+      <p className='font-light w-full'>{`${description.slice(0, 320)} ...`}</p>
+
+      <div className='w-full flex justify-end mt-5'>
+        <Link
+          className='w-fit flex items-center gap-2 text-sm whitespace-nowrap text-rose-900'
+          href={job.redirect_url ?? '#'}
+          target='_blank'
+        >
+          <span>{moreDetailsBtnTxt}</span>
+          <BsBoxArrowInUpRight className='text-lg' />
+        </Link>
+      </div>
     </Button>
   );
 }

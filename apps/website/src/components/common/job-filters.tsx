@@ -108,8 +108,8 @@ export default function JobFilters({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger className='w-fit flex items-center gap-2 text-rose-900 whitespace-nowrap'>
-        <LuSettings2 className='text-xl' />
+      <DialogTrigger className='w-fit flex items-center gap-2 text-rose-900 text-BodyXS lg:text-BodySM whitespace-nowrap'>
+        <LuSettings2 className='text-lg lg:text-xl' />
         <p>{moreFiltersBtnTxt}</p>
       </DialogTrigger>
       <DialogContent>

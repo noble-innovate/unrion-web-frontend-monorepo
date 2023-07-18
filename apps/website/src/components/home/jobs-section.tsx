@@ -32,7 +32,7 @@ export default function JobsSection({
   }, []);
 
   return (
-    <div className='flex flex-col items-end w-full py-5'>
+    <div className='flex flex-col items-end w-full py-5 gap-2'>
       <JobFilters
         {...jobFilterTexts}
         jobFilters={jobFilters}

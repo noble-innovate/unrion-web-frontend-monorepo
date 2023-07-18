@@ -182,7 +182,7 @@ interface ICTAButtons {
   jobApplicationErrorTxt: string;
 }
 
-const CTAButtons = ({
+export const CTAButtons = ({
   job,
   applyBtnTxt,
   saveBtnTxt,
@@ -213,6 +213,6 @@ const CTAButtons = ({
       jobApplicationErrorTxt={jobApplicationErrorTxt}
     /> */}
 
-    <Button variant='outline'>{saveBtnTxt}</Button>
+    {/* <Button variant='outline'>{saveBtnTxt}</Button> */}
   </div>
 );

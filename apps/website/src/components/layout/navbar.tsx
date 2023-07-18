@@ -16,6 +16,7 @@ import {
 
 import Logo from '@website/components/common/logo';
 import { IWebsiteNavLinks } from '@website/app/[locale]/layout';
+import MobileNavMenu from '@website/components/layout/mobile-nav-menu';
 
 interface INavBar {
   websiteNavLinks: IWebsiteNavLinks[];
@@ -32,20 +33,30 @@ export default function NavBar({ websiteNavLinks, infoBar }: INavBar) {
   return (
     <Fragment>
       {!isATSPage && (
-        <div className='bg-rose-900 flex items-center justify-center py-2 text-white'>
-          <p>{`${infoBar.message} - `}</p>
-          <Link className='ml-2 border-b' href='/ats'>
-            {infoBar.ctaButtonText}
-          </Link>
+        <div className='bg-rose-900 py-2 text-white'>
+          <div className='contained w-fit text-Body2XS lg:text-BodySM flex items-center justify-center'>
+            <p className='flex-1 text-center'>
+              {`${infoBar.message} - `}{' '}
+              <Link className='border-b' href='/ats'>
+                {infoBar.ctaButtonText}
+              </Link>
+            </p>
+          </div>
         </div>
       )}
 
       <nav className='flex items-center justify-between contained h-12'>
         <section className='flex items-center gap-12'>
-          <Logo />
+          <div className='flex items-center'>
+            <div className='lg:hidden'>
+              <MobileNavMenu navLinks={navLinks} />
+            </div>
+
+            <Logo />
+          </div>
 
           {!isATSPage && (
-            <ol className='flex items-center gap-10'>
+            <ol className='hidden lg:flex items-center gap-10'>
               {navLinks.map(({ id, title, link }) => (
                 <li key={id}>
                   <NextNavLink href={link}>{title}</NextNavLink>

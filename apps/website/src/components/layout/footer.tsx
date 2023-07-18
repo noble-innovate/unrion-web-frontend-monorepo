@@ -57,9 +57,9 @@ export default function Footer({ title, websiteNavLinks }: IFooter) {
         </ol>
       </section>
 
-      <section className='flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between flex-1 w-full lg:max-w-[36rem]'>
+      <section className='flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between flex-1 w-full text-BodySM lg:max-w-[36rem]'>
         {footerLinkGroups.map((footerLinkGroup, index) => (
-          <ol key={index} className='flex flex-col gap-5'>
+          <ol key={index} className='flex flex-col gap-2 lg:gap-5'>
             {footerLinkGroup.map(({ id, title, link }) => (
               <li key={id}>
                 <NextNavLink href={link}>{title}</NextNavLink>

@@ -39,70 +39,67 @@ export default function JobList({
       )}
 
       {hasJobs && (
-        <table className='w-full border-separate border-spacing-y-3 text-BodySM'>
-          <tbody>
-            {jobs.map(
-              (
-                {
-                  id,
-                  title,
-                  company,
-                  contract_time,
-                  contract_type,
-                  location,
-                  created,
-                },
-                index
-              ) => (
-                <tr
-                  key={id}
-                  className='bg-white group cursor-pointer'
-                  onClick={() =>
-                    router.push(`job-search?c=${userCountryCode}&ji=${index}`)
-                  }
-                >
-                  <td className='py-1 px-5 border-y border-l border-neutral-100 rounded-l-full text-neutral-400  group-hover:border-gray-300'>
-                    {formatDistanceToNowStrict(new Date(created), {
-                      addSuffix: true,
-                    })}
-                  </td>
-                  <td className='py-1 px-5 border-y border-neutral-100 group-hover:border-gray-300'>
-                    <h1 className='font-semibold'>{title}</h1>
-                    <p className='text-neutral-600'>{company.display_name}</p>
-                  </td>
-                  <td className='py-1 px-5 pr-2 border-y border-neutral-100 group-hover:border-gray-300'>
-                    {contract_time && (
-                      <Badge
-                        className='py-1 px-2 text-BodyXS  font-medium group-hover:text-neutral-900 whitespace-nowrap'
-                        variant='secondary'
-                      >
-                        {contractMap[contract_time]}
-                      </Badge>
-                    )}
-                  </td>
-                  <td className='py-1 px-5 pl-2 border-y border-neutral-100 group-hover:border-gray-300'>
-                    {contract_type && (
-                      <Badge
-                        className='py-1 px-2 text-BodyXS font-medium group-hover:text-neutral-900 whitespace-nowrap'
-                        variant='secondary'
-                      >
-                        {contractMap[contract_type]}
-                      </Badge>
-                    )}
-                  </td>
-                  <td className='py-1 px-5 border-y border-neutral-100 whitespace-nowrap group-hover:border-gray-300'>
-                    {location.area.slice(0, 2).reverse().join(', ')}
-                  </td>
-                  <td className='py-1 px-5 border-y border-r border-neutral-100 rounded-r-full text-neutral-300 group-hover:text-neutral-600 group-hover:border-gray-300'>
-                    <span className='flex items-end justify-end'>
-                      <FiChevronRight />
-                    </span>
-                  </td>
-                </tr>
-              )
-            )}
-          </tbody>
-        </table>
+        <div className='flex flex-col text-BodySM gap-3 w-full'>
+          {jobs.map(
+            (
+              {
+                id,
+                title,
+                company,
+                contract_time,
+                contract_type,
+                location,
+                created,
+              },
+              index
+            ) => (
+              <div
+                key={id}
+                className='flex flex-col lg:flex-row lg:justify-between lg:items-center w-full gap-2 rounded-lg lg:rounded-full border border-neutral-100 p-2 lg:py-1 lg:px-5  hover:border-gray-300 cursor-pointer'
+                onClick={() =>
+                  router.push(`job-search?c=${userCountryCode}&ji=${index}`)
+                }
+              >
+                <p className='text-neutral-400 lg:w-40'>
+                  {formatDistanceToNowStrict(new Date(created), {
+                    addSuffix: true,
+                  })}
+                </p>
+
+                <div className='lg:flex-1 mb-2 lg:mb-0'>
+                  <h1 className='font-semibold'>{title}</h1>
+                  <p className='text-neutral-600'>{company.display_name}</p>
+                </div>
+
+                <div className='flex items-center lg:justify-center gap-3 lg:w-1/5'>
+                  {contract_time && (
+                    <Badge
+                      className='py-1 px-2 text-BodyXS  font-medium group-hover:text-neutral-900 whitespace-nowrap'
+                      variant='secondary'
+                    >
+                      {contractMap[contract_time]}
+                    </Badge>
+                  )}
+
+                  {contract_type && (
+                    <Badge
+                      className='py-1 px-2 text-BodyXS font-medium group-hover:text-neutral-900 whitespace-nowrap'
+                      variant='secondary'
+                    >
+                      {contractMap[contract_type]}
+                    </Badge>
+                  )}
+                </div>
+
+                <p className='whitespace-nowrap lg:w-1/5'>
+                  {location.area.slice(0, 3).reverse().join(', ')}
+                </p>
+
+                <FiChevronRight className='hidden lg:flex items-end justify-end' />
+              </div>
+            )
+          )}
+        </div>
       )}
     </Fragment>
   );

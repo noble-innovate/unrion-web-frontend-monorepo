@@ -106,13 +106,14 @@ export default function JobData({
 
   return (
     <div className='flex py-2 gap-2 h-full'>
-      <div className='flex flex-col text-BodySM w-[28rem] gap-2 h-full overflow-scroll pb-72'>
+      <div className='flex flex-col text-BodySM w-full lg:w-[28rem] gap-2 h-full overflow-scroll pb-72'>
         {jobs?.map((job, index) => (
           <JobCard
             key={job.id}
             job={job}
             active={index === activeJobIndex}
             bookmarked={savedJobIds?.includes(job.id)}
+            moreDetailsBtnTxt={jobDescriptionTexts?.moreDetailsBtnTxt}
             onSelect={() => {
               setActiveJobIndex(index);
 
@@ -126,7 +127,7 @@ export default function JobData({
         ))}
       </div>
 
-      <div className='border border-neutral-500 rounded-lg h-fit max-h-full flex-1 p-5 overflow-scroll'>
+      <div className='hidden lg:block border border-neutral-500 rounded-lg h-fit max-h-full flex-1 p-5 overflow-scroll'>
         {isLoadingJobDescription && (
           <div className='py-20 flex items-center justify-center'>
             <Loader />

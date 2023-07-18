@@ -18,8 +18,8 @@ export default async function JobSearchPage() {
   return (
     <main>
       <section className='py-2 border-y border-gray-200'>
-        <div className='flex items-center justify-between contained'>
-          <div className='w-[55rem]'>
+        <div className='flex flex-col lg:flex-row items-end lg:items-center lg:justify-between gap-5 lg:gap-0 contained'>
+          <div className='w-full lg:w-[55rem]'>
             <JobSearchForm {...jobFilters.search} />
           </div>
 
