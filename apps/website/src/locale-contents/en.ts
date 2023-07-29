@@ -389,7 +389,7 @@ export default {
     waitingListSection: {
       title: 'Join our waiting list',
       subTitle:
-        'Be the first to unlock the benefits of noble ATS & get the first',
+        'Be the first to unlock the benefits of Unrion ATS & get the first',
       subTitleSpotlightText: '1 month free',
       inputPlaceholder: 'Email',
       inputSubmitButtonText: 'Count me in',
@@ -405,9 +405,9 @@ export default {
     faqs: [
       {
         id: '1',
-        question: 'How does Noble ATS work?',
+        question: 'How does Unrion ATS work?',
         answer:
-          'Noble ATS is an AI powered talent management software that automates recruitment process, improve quality of hire, and foster excellent candidate experience. Additionally, this is a web base software that can be integrated via API. Noble ATS will enable companies to find, attract and hire top talents in a fast and effective manual by using AI technologies.',
+          'Unrion ATS is an AI powered talent management software that automates recruitment process, improve quality of hire, and foster excellent candidate experience. Additionally, this is a web base software that can be integrated via API. Unrion ATS will enable companies to find, attract and hire top talents in a fast and effective manual by using AI technologies.',
       },
       {
         id: '2',
@@ -417,9 +417,9 @@ export default {
       },
       {
         id: '3',
-        question: 'Why Noble ATS?',
+        question: 'Why Unrion ATS?',
         answer:
-          'We have tremendous industry experience, and this tool is specifically designed to eliminate stress associated with reviewing resumes, scheduling interviews, tracking candidates progress, internal communication, decision making and onboarding. By using noble ATS you will save about 40% hiring cost and time to fill.  ',
+          'We have tremendous industry experience, and this tool is specifically designed to eliminate stress associated with reviewing resumes, scheduling interviews, tracking candidates progress, internal communication, decision making and onboarding. By using unrion ATS you will save about 40% hiring cost and time to fill.',
       },
     ],
   },
